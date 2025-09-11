@@ -1,0 +1,2 @@
+# statistic
+solve statistic question
