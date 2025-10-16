@@ -1,0 +1,25 @@
+sns.histplot(df['math score'], kde=True)
+plt.title("Distribution of Math Scores")
+plt.show()
+
+sns.boxplot(x='gender', y='math score', data=df)
+plt.title("Math Score by Gender")
+plt.show()
+
+sns.pairplot(df[['math score', 'reading score', 'writing score']])
+plt.show()
+
+
+
+
+prep = df[df['test preparation course'] == 'completed']['math score']
+no_prep = df[df['test preparation course'] == 'none']['math score']
+
+t_stat, p_val = stats.ttest_ind(prep, no_prep)
+print(f"T-Statistic: {t_stat}, P-value: {p_val}")
+
+if p_val < 0.05:
+    print("Significant difference: Test preparation impacts math scores.")
+else:
+    print("No significant difference.")
+
