@@ -1,0 +1,23 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = [12, 15, 20, 20, 21, 22, 23, 25, 30, 32, 35, 36, 40, 42, 50]
+
+s = pd.Series(data)
+
+print("Count:", s.count())
+print("Mean:", s.mean())
+print("Median:", s.median())
+print("Mode:", list(s.mode()))
+print("Variance:", s.var())
+print("Standard Deviation:", s.std())
+print("Min:", s.min())
+print("Max:", s.max())
+print("Quantiles:\n", s.quantile([0.25, 0.5, 0.75]))
+
+plt.hist(s, bins=8, color='skyblue', edgecolor='black')
+plt.title("Histogram of Data")
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.show()
